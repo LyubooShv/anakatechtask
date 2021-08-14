@@ -17,8 +17,10 @@ export default class App extends Component {
     this.cleaner();
     setTimeout(() => {
       clearInterval(this.add);
-      clearInterval(this.interval);
       clearInterval(this.clear);
+      clearInterval(this.interval);
+      clearTimeout(this.timeout);
+      clearTimeout(this.timeout1);
     }, 300000);
   }
 
@@ -26,10 +28,10 @@ export default class App extends Component {
     this.add = setInterval(() => {
       this.increment();
     }, 5000);
-    setTimeout(() => {
+    this.timeout = setTimeout(() => {
       clearInterval(this.add);
     }, 60000);
-    setTimeout(() => {
+    this.timeout1 = setTimeout(() => {
       this.interval = setInterval(this.decrement, 5000);
     }, 60000);
   };
